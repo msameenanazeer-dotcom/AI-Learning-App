@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Learning App</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+}
+
+/* HEADER */
+
+header {
+    background: linear-gradient(135deg, #182848, #4b6cb7);
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 38px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+/* NAVIGATION */
+
+nav {
+    background: #111827;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav button {
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background: #374151;
+    border-radius: 6px;
+}
+
+/* MAIN */
+
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.page {
+    display: none;
+    padding: 30px 0;
+}
+
+.page.active {
+    display: block;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+}
+
+/* HOME CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card .icon {
+    font-size: 50px;
+}
+
+.card h3 {
+    color: #1d4ed8;
+}
+
+.card button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background: #1e40af;
+}
+
+/* CONTENT BOX */
+
+.box {
+    background: white;
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.box h3 {
+    color: #1d4ed8;
+}
+
+/* BUTTONS */
+
+.action-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 5px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.action-btn:hover {
+    background: #1e40af;
+}
+
+.reset-btn {
+    background: #dc2626;
+}
+
+.reset-btn:hover {
+    background: #991b1b;
+}
+
+/* 8 PUZZLE */
+
+.puzzle-board {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    gap: 6px;
+    justify-content: center;
+    margin: 20px;
+}
+
+.tile {
+    width: 80px;
+    height: 80px;
+    background: #2563eb;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.tile.empty {
+    background: #e5e7eb;
+}
+
+/* WATER JUG */
+
+.jugs {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 50px;
+    margin: 30px;
+}
+
+.jug {
+    width: 110px;
+    height: 180px;
+    border: 4px solid #2563eb;
+    border-radius: 10px 10px 25px 25px;
+    position: relative;
+    overflow: hidden;
+    background: #f8fafc;
+}
+
+.water {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #60a5fa;
+    transition: height 0.5s;
+}
+
+.jug-label {
+    text-align: center;
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+/* VACUUM */
+
+.vacuum-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    gap: 5px;
+    justify-content: center;
+    margin: 25px;
+}
+
+.room {
+    height: 120px;
+    border: 2px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    background: #fef3c7;
+}
+
+.room.clean {
+    background: #dcfce7;
+}
+
+/* MISSIONARIES */
+
+.mc-board {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    margin: 25px;
+}
+
+.bank {
+    min-height: 180px;
+    width: 180px;
+    background: #dbeafe;
+    border: 3px solid #2563eb;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+}
+
+.boat {
+    width: 130px;
+    height: 70px;
+    background: #92400e;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* SEARCH */
+
+.search-tree {
+    background: #f8fafc;
+    border-left: 5px solid #2563eb;
+    padding: 15px;
+    margin-top: 20px;
+    white-space: pre-line;
+    font-family: monospace;
+}
+
+/* TABLE */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #2563eb;
+    color: white;
+}
+
+/* FOOTER */
+
+footer {
+    background: #111827;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    nav button {
+        font-size: 12px;
+        padding: 9px;
+    }
+
+    .puzzle-board {
+        grid-template-columns: repeat(3, 65px);
+    }
+
+    .tile {
+        width: 65px;
+        height: 65px;
+    }
+
+    .mc-board {
+        flex-direction: column;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>🤖 AI Learning App</h1>
+
+<p>Interactive Artificial Intelligence Problems & Algorithms</p>
+
+</header>
+
+
+<nav>
+
+<button onclick="showPage('home')">🏠 Home</button>
+
+<button onclick="showPage('puzzle')">🧩 8 Puzzle</button>
+
+<button onclick="showPage('water')">💧 Water Jug</button>
+
+<button onclick="showPage('vacuum')">🧹 Vacuum</button>
+
+<button onclick="showPage('mission')">👨‍👩‍👦 M&C</button>
+
+<button onclick="showPage('bfs')">🔎 BFS</button>
+
+<button onclick="showPage('dfs')">🌲 DFS</button>
+
+<button onclick="showPage('astar')">⭐ A*</button>
+
+</nav>
+
+
+<div class="container">
+
+
+<!-- HOME -->
+
+<section id="home" class="page active">
+
+<div class="section-title">
+
+<h2>Welcome to AI Learning</h2>
+
+<p>Select an AI problem to learn and experiment.</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="icon">🧩</div>
+
+<h3>8 Puzzle</h3>
+
+<p>Learn state-space search using the 8-puzzle problem.</p>
+
+<button onclick="showPage('puzzle')">
+Open
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">💧</div>
+
+<h3>Water Jug</h3>
+
+<p>Understand state-space representation using water jugs.</p>
+
+<button onclick="showPage('water')">
+Open
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🧹</div>
+
+<h3>Vacuum Cleaner</h3>
+
+<p>Study the classic AI vacuum cleaner environment.</p>
+
+<button onclick="showPage('vacuum')">
+Open
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">👨‍👩‍👦</div>
+
+<h3>Missionaries & Cannibals</h3>
+
+<p>Learn constraint-based state-space problems.</p>
+
+<button onclick="showPage('mission')">
+Open
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🔎</div>
+
+<h3>Breadth First Search</h3>
+
+<p>Learn BFS with a simple example.</p>
+
+<button onclick="showPage('bfs')">
+Open
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🌲</div>
+
+<h3>Depth First Search</h3>
+
+<p>Understand DFS traversal.</p>
+
+<button onclick="showPage('dfs')">
+Open
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">⭐</div>
+
+<h3>A* Search</h3>
+
+<p>Learn heuristic search and the A* algorithm.</p>
+
+<button onclick="showPage('astar')">
+Open
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 8 PUZZLE -->
+
+<section id="puzzle" class="page">
+
+<div class="section-title">
+
+<h2>🧩 8 Puzzle Problem</h2>
+
+<p>Move the blank tile to reach the goal state.</p>
+
+</div>
+
+
+<div class="box">
+
+<h3>Initial State</h3>
+
+<p>
+7 &nbsp; 2 &nbsp; 4<br>
+5 &nbsp; - &nbsp; 6<br>
+8 &nbsp; 3 &nbsp; 1
+</p>
+
+<h3>Goal State</h3>
+
+<p>
+1 &nbsp; 2 &nbsp; 3<br>
+4 &nbsp; 5 &nbsp; 6<br>
+7 &nbsp; 8 &nbsp; -
+</p>
+
+</div>
+
+
+<div class="box">
+
+<h3>Interactive Puzzle</h3>
+
+<div id="puzzleBoard" class="puzzle-board"></div>
+
+<button class="action-btn" onclick="shufflePuzzle()">
+🔀 Shuffle
+</button>
+
+<button class="action-btn" onclick="solvePuzzle()">
+⭐ Show Solution
+</button>
+
+<button class="action-btn reset-btn" onclick="resetPuzzle()">
+Reset
+</button>
+
+<p id="puzzleMessage"></p>
+
+</div>
+
+</section>
+
+
+<!-- WATER JUG -->
+
+<section id="water" class="page">
+
+<div class="section-title">
+
+<h2>💧 Water Jug Problem</h2>
+
+<p>Goal: Measure exactly 4 litres using a 5L jug and a 3L jug.</p>
+
+</div>
+
+
+<div class="box">
+
+<h3>Operations</h3>
+
+<button class="action-btn" onclick="fillJug(1)">
+Fill 5L
+</button>
+
+<button class="action-btn" onclick="fillJug(2)">
+Fill 3L
+</button>
+
+<button class="action-btn" onclick="emptyJug(1)">
+Empty 5L
+</button>
+
+<button class="action-btn" onclick="emptyJug(2)">
+Empty 3L
+</button>
+
+<button class="action-btn" onclick="pourJug(1,2)">
+Pour 5L → 3L
+</button>
+
+<button class="action-btn" onclick="pourJug(2,1)">
+Pour 3L → 5L
+</button>
+
+<button class="action-btn reset-btn" onclick="resetJugs()">
+Reset
+</button>
+
+
+<div class="jugs">
+
+<div>
+
+<div class="jug">
+
+<div id="water5" class="water"></div>
+
+</div>
+
+<div class="jug-label">
+5L Jug: <span id="value5">0</span>L
+</div>
+
+</div>
+
+
+<div>
+
+<div class="jug">
+
+<div id="water3" class="water"></div>
+
+</div>
+
+<div class="jug-label">
+3L Jug: <span id="value3">0</span>L
+</div>
+
+</div>
+
+</div>
+
+
+<p id="jugMessage"></p>
+
+</div>
+
+
+<div class="box">
+
+<h3>State Representation</h3>
+
+<p>
+
+A state is represented as:
+
+<b>(x, y)</b>
+
+</p>
+
+<p>
+
+x = amount of water in 5L jug<br>
+
+y = amount of water in 3L jug
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- VACUUM -->
+
+<section id="vacuum" class="page">
+
+<div class="section-title">
+
+<h2>🧹 Vacuum Cleaner Problem</h2>
+
+<p>The vacuum cleaner must clean both rooms.</p>
+
+</div>
+
+
+<div class="box">
+
+<h3>Environment</h3>
+
+<div class="vacuum-grid">
+
+<div id="roomA" class="room">
+🗑️
+</div>
+
+<div id="roomB" class="room">
+🗑️
+</div>
+
+</div>
+
+
+<p>
+
+Current Position:
+
+<b id="vacuumPosition">A</b>
+
+</p>
+
+
+<button class="action-btn" onclick="vacuumClean()">
+🧹 Clean
+</button>
+
+<button class="action-btn" onclick="vacuumMove()">
+➡️ Move
+</button>
+
+<button class="action-btn reset-btn" onclick="resetVacuum()">
+Reset
+</button>
+
+<p id="vacuumMessage"></p>
+
+</div>
+
+</section>
+
+
+<!-- MISSIONARIES -->
+
+<section id="mission" class="page">
+
+<div class="section-title">
+
+<h2>👨‍👩‍👦 Missionaries & Cannibals</h2>
+
+<p>
+
+Three missionaries and three cannibals must cross the river safely.
+
+</p>
+
+</div>
+
+
+<div class="box">
+
+<h3>Rules</h3>
+
+<ul>
+
+<li>Boat can carry maximum 2 people.</li>
+
+<li>Boat must carry at least 1 person.</li>
+
+<li>Cannibals must never outnumber missionaries where missionaries are present.</li>
+
+</ul>
+
+</div>
+
+
+<div class="box">
+
+<h3>Interactive Demonstration</h3>
+
+<div class="mc-board">
+
+<div class="bank">
+
+<h3>Left Bank</h3>
+
+<p id="leftPeople">
+👨‍⚕️👨‍⚕️👨‍⚕️<br>
+👹👹👹
+</p>
+
+</div>
+
+<div class="boat">
+
+🚣 Boat
+
+</div>
+
+<div class="bank">
+
+<h3>Right Bank</h3>
+
+<p id="rightPeople">
+Empty
+</p>
+
+</div>
+
+</div>
+
+
+<button class="action-btn" onclick="moveMissionaries()">
+Move 2 Missionaries
+</button>
+
+<button class="action-btn" onclick="moveCannibals()">
+Move 2 Cannibals
+</button>
+
+<button class="action-btn" onclick="moveMixed()">
+Move 1M + 1C
+</button>
+
+<button class="action-btn reset-btn" onclick="resetMission()">
+Reset
+</button>
+
+<p id="missionMessage"></p>
+
+</div>
+
+</section>
+
+
+<!-- BFS -->
+
+<section id="bfs" class="page">
+
+<div class="section-title">
+
+<h2>🔎 Breadth First Search</h2>
+
+<p>BFS explores nodes level by level.</p>
+
+</div>
+
+
+<div class="box">
+
+<h3>Example Graph</h3>
+
+<pre>
+
+        A
+       / \
+      B   C
+     / \   \
+    D   E   F
+
+</pre>
+
+
+<button class="action-btn" onclick="runBFS()">
+▶ Run BFS
+</button>
+
+<div id="bfsResult" class="search-tree"></div>
+
+</div>
+
+
+<div class="box">
+
+<h3>BFS Algorithm</h3>
+
+<ol>
+
+<li>Put the starting node into a queue.</li>
+
+<li>Remove the first node from the queue.</li>
+
+<li>Visit the node.</li>
+
+<li>Add its unvisited children to the queue.</li>
+
+<li>Repeat until the goal is found.</li>
+
+</ol>
+
+</div>
+
+</section>
+
+
+<!-- DFS -->
+
+<section id="dfs" class="page">
+
+<div class="section-title">
+
+<h2>🌲 Depth First Search</h2>
+
+<p>DFS explores one branch deeply before backtracking.</p>
+
+</div>
+
+
+<div class="box">
+
+<h3>Example Graph</h3>
+
+<pre>
+
+        A
+       / \
+      B   C
+     / \   \
+    D   E   F
+
+</pre>
+
+
+<button class="action-btn" onclick="runDFS()">
+▶ Run DFS
+</button>
+
+<div id="dfsResult" class="search-tree"></div>
+
+</div>
+
+
+<div class="box">
+
+<h3>DFS Algorithm</h3>
+
+<ol>
+
+<li>Start from the root node.</li>
+
+<li>Visit the node.</li>
+
+<li>Move to an unvisited child.</li>
+
+<li>Continue deeply.</li>
+
+<li>Backtrack when no unvisited child exists.</li>
+
+</ol>
+
+</div>
+
+</section>
+
+
+<!-- A STAR -->
+
+<section id="astar" class="page">
+
+<div class="section-title">
+
+<h2>⭐ A* Search Algorithm</h2>
+
+<p>A* combines path cost and heuristic information.</p>
+
+</div>
+
+
+<div class="box">
+
+<h3>Evaluation Function</h3>
+
+<p>
+
+<b>f(n) = g(n) + h(n)</b>
+
+</p>
+
+<p>
+
+g(n) = actual cost from start to node n
+
+</p>
+
+<p>
+
+h(n) = estimated cost from n to goal
+
+</p>
+
+<p>
+
+f(n) = total estimated cost
+
+</p>
+
+<button class="action-btn" onclick="runAStar()">
+⭐ Run A*
+</button>
+
+<div id="astarResult" class="search-tree"></div>
+
+</div>
+
+</section>
+
+
+</div>
+
+
+<footer>
+
+<p>🤖 AI Learning App</p>
+
+<p>Developed for Artificial Intelligence Learning</p>
+
+<p>© 2026</p>
+
+</footer>
+
+
+<script>
+
+/* =========================
+PAGE NAVIGATION
+========================= */
+
+function showPage(pageId) {
+
+    let pages = document.querySelectorAll(".page");
+
+    pages.forEach(function(page) {
+        page.classList.remove("active");
+    });
+
+    document.getElementById(pageId).classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* =========================
+8 PUZZLE
+========================= */
+
+let puzzle = [
+    7,2,4,
+    5,0,6,
+    8,3,1
+];
+
+const goalPuzzle = [
+    1,2,3,
+    4,5,6,
+    7,8,0
+];
+
+
+function displayPuzzle() {
+
+    const board = document.getElementById("puzzleBoard");
+
+    board.innerHTML = "";
+
+    puzzle.forEach(function(value) {
+
+        const tile = document.createElement("div");
+
+        tile.className = "tile";
+
+        if(value === 0) {
+
+            tile.classList.add("empty");
+
+            tile.innerHTML = "";
+
+        } else {
+
+            tile.innerHTML = value;
+
+        }
+
+        board.appendChild(tile);
+
+    });
+
+}
+
+
+function movePuzzle(index) {
+
+    const emptyIndex = puzzle.indexOf(0);
+
+    const row1 = Math.floor(index / 3);
+    const col1 = index % 3;
+
+    const row2 = Math.floor(emptyIndex / 3);
+    const col2 = emptyIndex % 3;
+
+    const distance =
+        Math.abs(row1-row2) +
+        Math.abs(col1-col2);
+
+    if(distance === 1) {
+
+        [puzzle[index], puzzle[emptyIndex]] =
+        [puzzle[emptyIndex], puzzle[index]];
+
+        displayPuzzle();
+
+    }
+
+}
+
+
+document.getElementById("puzzleBoard")
+.addEventListener("click", function(e) {
+
+    const tiles = [...this.children];
+
+    const index = tiles.indexOf(e.target);
+
+    if(index >= 0) {
+        movePuzzle(index);
+    }
+
+});
+
+
+function shufflePuzzle() {
+
+    for(let i=0;i<100;i++) {
+
+        let empty = puzzle.indexOf(0);
+
+        let possible = [];
+
+        let row = Math.floor(empty/3);
+        let col = empty%3;
+
+        if(row>0) possible.push(empty-3);
+        if(row<2) possible.push(empty+3);
+        if(col>0) possible.push(empty-1);
+        if(col<2) possible.push(empty+1);
+
+        let random =
+            possible[Math.floor(Math.random()*possible.length)];
+
+        [puzzle[empty],puzzle[random]] =
+        [puzzle[random],puzzle[empty]];
+
+    }
+
+    displayPuzzle();
+
+    document.getElementById("puzzleMessage").innerHTML =
+        "Puzzle shuffled. Click a tile next to the blank space.";
+
+}
+
+
+function resetPuzzle() {
+
+    puzzle = [
+        7,2,4,
+        5,0,6,
+        8,3,1
+    ];
+
+    displayPuzzle();
+
+    document.getElementById("puzzleMessage").innerHTML =
+        "Puzzle reset.";
+
+}
+
+
+function solvePuzzle() {
+
+    puzzle = [
+        1,2,3,
+        4,5,6,
+        7,8,0
+    ];
+
+    displayPuzzle();
+
+    document.getElementById("puzzleMessage").innerHTML =
+        "Solution displayed! Goal state reached.";
+
+}
+
+displayPuzzle();
+
+
+/* =========================
+WATER JUG
+========================= */
+
+let jug5 = 0;
+let jug3 = 0;
+
+
+function updateJugs() {
+
+    document.getElementById("value5").innerHTML = jug5;
+    document.getElementById("value3").innerHTML = jug3;
+
+    document.getElementById("water5").style.height =
+        (jug5/5*100) + "%";
+
+    document.getElementById("water3").style.height =
+        (jug3/3*100) + "%";
+
+    if(jug5 === 4) {
+
+        document.getElementById("jugMessage").innerHTML =
+            "🎉 Goal reached! You have exactly 4 litres in the 5L jug.";
+
+    } else {
+
+        document.getElementById("jugMessage").innerHTML =
+            "Current state = (" + jug5 + ", " + jug3 + ")";
+
+    }
+
+}
+
+
+function fillJug(jug) {
+
+    if(jug === 1)
+        jug5 = 5;
+
+    else
+        jug3 = 3;
+
+    updateJugs();
+
+}
+
+
+function emptyJug(jug) {
+
+    if(jug === 1)
+        jug5 = 0;
+
+    else
+        jug3 = 0;
+
+    updateJugs();
+
+}
+
+
+function pourJug(from,to) {
+
+    if(from === 1 && to === 2) {
+
+        let amount = Math.min(jug5, 3-jug3);
+
+        jug5 -= amount;
+        jug3 += amount;
+
+    }
+
+    else {
+
+        let amount = Math.min(jug3, 5-jug5);
+
+        jug3 -= amount;
+        jug5 += amount;
+
+    }
+
+    updateJugs();
+
+}
+
+
+function resetJugs() {
+
+    jug5 = 0;
+    jug3 = 0;
+
+    updateJugs();
+
+}
+
+
+/* =========================
+VACUUM CLEANER
+========================= */
+
+let vacuumPosition = "A";
+
+let cleanA = false;
+let cleanB = false;
+
+
+function vacuumClean() {
+
+    if(vacuumPosition === "A") {
+
+        cleanA = true;
+
+        document.getElementById("roomA")
+        .classList.add("clean");
+
+        document.getElementById("roomA")
+        .innerHTML = "✨";
+
+    } else {
+
+        cleanB = true;
+
+        document.getElementById("roomB")
+        .classList.add("clean");
+
+        document.getElementById("roomB")
+        .innerHTML = "✨";
+
+    }
+
+    updateVacuum();
+
+}
+
+
+function vacuumMove() {
+
+    if(vacuumPosition === "A")
+        vacuumPosition = "B";
+
+    else
+        vacuumPosition = "A";
+
+    updateVacuum();
+
+}
+
+
+function updateVacuum() {
+
+    document.getElementById("vacuumPosition")
+    .innerHTML = vacuumPosition;
+
+    if(cleanA && cleanB) {
+
+        document.getElementById("vacuumMessage")
+        .innerHTML =
+        "🎉 Both rooms are clean!";
+
+    } else {
+
+        document.getElementById("vacuumMessage")
+        .innerHTML =
+        "Vacuum is currently in Room " + vacuumPosition;
+
+    }
+
+}
+
+
+function resetVacuum() {
+
+    vacuumPosition = "A";
+
+    cleanA = false;
+    cleanB = false;
+
+    document.getElementById("roomA").classList.remove("clean");
+    document.getElementById("roomB").classList.remove("clean");
+
+    document.getElementById("roomA").innerHTML = "🗑️";
+    document.getElementById("roomB").innerHTML = "🗑️";
+
+    updateVacuum();
+
+}
+
+
+/* =========================
+MISSIONARIES & CANNIBALS
+========================= */
+
+let missionStep = 0;
+
+
+function moveMissionaries() {
+
+    missionStep++;
+
+    if(missionStep >= 3) {
+
+        document.getElementById("missionMessage")
+        .innerHTML =
+        "🎉 Demonstration completed. All people crossed safely.";
+
+    } else {
+
+        document.getElementById("missionMessage")
+        .innerHTML =
+        "Move performed: 2 Missionaries.";
+
+    }
+
+}
+
+
+function moveCannibals() {
+
+    missionStep++;
+
+    document.getElementById("missionMessage")
+    .innerHTML =
+    "Move performed: 2 Cannibals.";
+
+}
+
+
+function moveMixed() {
+
+    missionStep++;
+
+    document.getElementById("missionMessage")
+    .innerHTML =
+    "Move performed: 1 Missionary + 1 Cannibal.";
+
+}
+
+
+function resetMission() {
+
+    missionStep = 0;
+
+    document.getElementById("missionMessage")
+    .innerHTML =
+    "Problem reset.";
+
+}
+
+
+/* =========================
+BFS
+========================= */
+
+function runBFS() {
+
+    let graph = {
+
+        A:["B","C"],
+
+        B:["D","E"],
+
+        C:["F"],
+
+        D:[],
+        E:[],
+        F:[]
+
+    };
+
+
+    let queue = ["A"];
+
+    let visited = [];
+
+    while(queue.length > 0) {
+
+        let node = queue.shift();
+
+        if(!visited.includes(node)) {
+
+            visited.push(node);
+
+            queue =
+            queue.concat(graph[node]);
+
+        }
+
+    }
+
+
+    document.getElementById("bfsResult")
+    .innerHTML =
+    "BFS Traversal:\n\n" +
+    visited.join(" → ");
+
+}
+
+
+/* =========================
+DFS
+========================= */
+
+function runDFS() {
+
+    let graph = {
+
+        A:["B","C"],
+
+        B:["D","E"],
+
+        C:["F"],
+
+        D:[],
+        E:[],
+        F:[]
+
+    };
+
+
+    let visited = [];
+
+
+    function dfs(node) {
+
+        visited.push(node);
+
+        graph[node].forEach(function(child) {
+
+            if(!visited.includes(child)) {
+
+                dfs(child);
+
+            }
+
+        });
+
+    }
+
+
+    dfs("A");
+
+
+    document.getElementById("dfsResult")
+    .innerHTML =
+    "DFS Traversal:\n\n" +
+    visited.join(" → ");
+
+}
+
+
+/* =========================
+A STAR
+========================= */
+
+function runAStar() {
+
+    let steps = [
+
+        "Start Node: A",
+
+        "f(A) = g(A) + h(A)",
+
+        "Select node with lowest f(n)",
+
+        "Expand neighbouring nodes",
+
+        "Calculate g(n), h(n) and f(n)",
+
+        "Continue until goal is reached",
+
+        "Goal Node reached!"
+
+    ];
+
+
+    document.getElementById("astarResult")
+    .innerHTML =
+    steps.join("\n");
+
+}
+
+</script>
+
+
+</body>
+</html>
