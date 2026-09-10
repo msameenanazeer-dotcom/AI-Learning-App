@@ -1,226 +1,547 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>AI Learning App</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
+            color: #111827;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: linear-gradient(135deg, #172554, #4f6db8);
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            font-size: 20px;
+        }
+
+
+        /* ================= NAVIGATION ================= */
+
+        nav {
+            background: #111827;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 20px 18px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #2563eb;
+        }
+
+
+        /* ================= MAIN ================= */
+
+        .container {
+            max-width: 1250px;
+            margin: auto;
+            padding: 50px 25px;
+        }
+
+        .welcome {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .welcome h2 {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .welcome p {
+            font-size: 18px;
+        }
+
+
+        /* ================= CARDS ================= */
+
+        .card-container {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 30px 25px;
+
+            text-align: center;
+
+            box-shadow:
+                0 5px 18px rgba(0,0,0,0.12);
+
+            transition:
+                transform 0.3s,
+                box-shadow 0.3s;
+
+            min-height: 330px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,0.18);
+        }
+
+
+        /* ================= ICON ================= */
+
+        .icon {
+            font-size: 65px;
+            margin-bottom: 10px;
+        }
+
+
+        /* ================= CARD TITLE ================= */
+
+        .card h3 {
+            color: #1d4ed8;
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+
+        /* ================= CARD TEXT ================= */
+
+        .card p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+
+        /* ================= OPEN BUTTON ================= */
+
+        .open-btn {
+            display: inline-block;
+
+            background: #2563eb;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 12px 28px;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            transition: 0.3s;
+        }
+
+        .open-btn:hover {
+            background: #1d4ed8;
+
+            transform: scale(1.05);
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #111827;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+
+            margin-top: 30px;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+
+            nav a {
+                padding: 14px 10px;
+                font-size: 14px;
+            }
+
+            .welcome h2 {
+                font-size: 28px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<!-- ================= HEADER ================= -->
+
+<!-- =====================================================
+                     HEADER
+===================================================== -->
 
 <header>
-    <div class="header-content">
-        <h1>🤖 AI Learning App</h1>
-        <p>Interactive Artificial Intelligence Problems and Algorithms</p>
-    </div>
+
+    <h1>🤖 AI Learning App</h1>
+
+    <p>
+        Interactive Artificial Intelligence Problems and Algorithms
+    </p>
+
 </header>
 
 
-<!-- ================= NAVIGATION ================= -->
 
-<nav class="navbar">
+<!-- =====================================================
+                   NAVIGATION BAR
+===================================================== -->
 
-    <a href="index.html">🏠 Home</a>
+<nav>
 
-    <!-- CHANGE THESE FILE NAMES TO YOUR ACTUAL FILE NAMES -->
-
-    <a href="8-puzzle.html">🧩 8 Puzzle</a>
-
-    <a href="water-jug.html">💧 Water Jug</a>
-
-    <a href="vacuum-cleaner.html">🧹 Vacuum Cleaner</a>
-
-    <a href="missionaries-cannibals.html">
-        👨‍👩‍👧 Missionaries & Cannibals
+    <a href="index.html">
+        🏠 Home
     </a>
 
-    <a href="bfs.html">🔎 BFS</a>
+    <a href="https://msameenanazeer-dotcom.github.io/puzzle-eight-new/"
+       target="_blank"
+       rel="noopener noreferrer">
+        🧩 8 Puzzle
+    </a>
 
-    <a href="dfs.html">🌲 DFS</a>
+    <a href="https://msameenanazeer-dotcom.github.io/-8-Queens-Problem/"
+       target="_blank"
+       rel="noopener noreferrer">
+        ♛ 8 Queens
+    </a>
 
-    <a href="astar.html">⭐ A*</a>
+    <a href="https://msameenanazeer-dotcom.github.io/Missionaries-and-Cannibals/"
+       target="_blank"
+       rel="noopener noreferrer">
+        👨‍👩‍👧 Missionaries
+    </a>
+
+    <a href="https://msameenanazeer-dotcom.github.io/Vacuum-Cleaner-Toy/"
+       target="_blank"
+       rel="noopener noreferrer">
+        🧹 Vacuum
+    </a>
+
+    <a href="https://msameenanazeer-dotcom.github.io/Breadth-First-Search/"
+       target="_blank"
+       rel="noopener noreferrer">
+        🔎 BFS
+    </a>
+
+    <a href="https://msameenanazeer-dotcom.github.io/Andhra-Pradesh-city-TSP-project-/"
+       target="_blank"
+       rel="noopener noreferrer">
+        🗺️ TSP
+    </a>
 
 </nav>
 
 
-<!-- ================= HOME ================= -->
 
-<main>
+<!-- =====================================================
+                       MAIN
+===================================================== -->
 
-<section class="home-section">
-
-    <h2>Welcome to AI Learning</h2>
-
-    <p>
-        Learn Artificial Intelligence through interactive problems
-        and algorithms.
-    </p>
+<div class="container">
 
 
-    <!-- ================= PROBLEM CARDS ================= -->
+    <div class="welcome">
+
+        <h2>
+            Welcome to AI Learning
+        </h2>
+
+        <p>
+            Learn Artificial Intelligence through
+            interactive problems and algorithms.
+        </p>
+
+    </div>
+
+
+
+    <!-- =================================================
+                     PROBLEM CARDS
+    ================================================= -->
 
     <div class="card-container">
 
 
-        <!-- 8 PUZZLE -->
+
+        <!-- ================= 8 PUZZLE ================= -->
 
         <div class="card">
 
-            <div class="card-icon">🧩</div>
+            <div class="icon">
+                🧩
+            </div>
 
-            <h3>8 Puzzle</h3>
+            <h3>
+                8 Puzzle
+            </h3>
 
             <p>
-                Learn state-space search using the classic
-                8-puzzle problem.
+                Learn state-space search using
+                the classic 8-puzzle problem.
             </p>
 
-            <a href="8-puzzle.html" class="open-btn">
-                Open
+            <a
+                href="https://msameenanazeer-dotcom.github.io/puzzle-eight-new/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="open-btn">
+
+                Open 8 Puzzle
+
             </a>
 
         </div>
 
 
-        <!-- WATER JUG -->
+
+        <!-- ================= 8 QUEENS ================= -->
 
         <div class="card">
 
-            <div class="card-icon">💧</div>
+            <div class="icon">
+                ♛
+            </div>
 
-            <h3>Water Jug</h3>
+            <h3>
+                8 Queens Problem
+            </h3>
 
             <p>
-                Understand state-space representation using
-                water jugs.
+                Learn the classic constraint
+                satisfaction problem using
+                the 8 Queens problem.
             </p>
 
-            <a href="water-jug.html" class="open-btn">
-                Open
+            <a
+                href="https://msameenanazeer-dotcom.github.io/-8-Queens-Problem/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="open-btn">
+
+                Open 8 Queens
+
             </a>
 
         </div>
 
 
-        <!-- VACUUM CLEANER -->
+
+        <!-- ========== MISSIONARIES & CANNIBALS ========== -->
 
         <div class="card">
 
-            <div class="card-icon">🧹</div>
+            <div class="icon">
+                👨‍👩‍👧
+            </div>
 
-            <h3>Vacuum Cleaner</h3>
+            <h3>
+                Missionaries & Cannibals
+            </h3>
 
             <p>
-                Study the classic AI vacuum cleaner problem
-                and environment.
+                Study constraint-based
+                state-space search problems.
             </p>
 
-            <a href="vacuum-cleaner.html" class="open-btn">
-                Open
+            <a
+                href="https://msameenanazeer-dotcom.github.io/Missionaries-and-Cannibals/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="open-btn">
+
+                Open Problem
+
             </a>
 
         </div>
 
 
-        <!-- MISSIONARIES & CANNIBALS -->
+
+        <!-- ================= VACUUM CLEANER ================= -->
 
         <div class="card">
 
-            <div class="card-icon">👨‍👩‍👧</div>
+            <div class="icon">
+                🧹
+            </div>
 
-            <h3>Missionaries & Cannibals</h3>
+            <h3>
+                Vacuum Cleaner
+            </h3>
 
             <p>
-                Learn constraint-based state-space problems.
+                Study the classic AI vacuum
+                cleaner agent and environment.
             </p>
 
-            <a href="missionaries-cannibals.html" class="open-btn">
-                Open
+            <a
+                href="https://msameenanazeer-dotcom.github.io/Vacuum-Cleaner-Toy/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="open-btn">
+
+                Open Vacuum
+
             </a>
 
         </div>
 
 
-        <!-- BFS -->
+
+        <!-- ================= BFS ================= -->
 
         <div class="card">
 
-            <div class="card-icon">🔎</div>
+            <div class="icon">
+                🔎
+            </div>
 
-            <h3>Breadth First Search</h3>
+            <h3>
+                Breadth First Search
+            </h3>
 
             <p>
-                Learn BFS traversal using a simple graph.
+                Learn BFS graph traversal
+                through an interactive example.
             </p>
 
-            <a href="bfs.html" class="open-btn">
-                Open
+            <a
+                href="https://msameenanazeer-dotcom.github.io/Breadth-First-Search/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="open-btn">
+
+                Open BFS
+
             </a>
 
         </div>
 
 
-        <!-- DFS -->
+
+        <!-- ================= TSP ================= -->
 
         <div class="card">
 
-            <div class="card-icon">🌲</div>
+            <div class="icon">
+                🗺️
+            </div>
 
-            <h3>Depth First Search</h3>
+            <h3>
+                Travelling Salesman Problem
+            </h3>
 
             <p>
-                Learn DFS traversal using a simple graph.
+                Explore the Travelling Salesman
+                Problem using Andhra Pradesh cities.
             </p>
 
-            <a href="dfs.html" class="open-btn">
-                Open
+            <a
+                href="https://msameenanazeer-dotcom.github.io/Andhra-Pradesh-city-TSP-project-/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="open-btn">
+
+                Open TSP
+
             </a>
 
         </div>
 
-
-        <!-- A STAR -->
-
-        <div class="card">
-
-            <div class="card-icon">⭐</div>
-
-            <h3>A* Search</h3>
-
-            <p>
-                Learn heuristic search using the
-                A* algorithm.
-            </p>
-
-            <a href="astar.html" class="open-btn">
-                Open
-            </a>
-
-        </div>
 
 
     </div>
 
-</section>
-
-</main>
+</div>
 
 
-<!-- ================= FOOTER ================= -->
+
+<!-- =====================================================
+                       FOOTER
+===================================================== -->
 
 <footer>
 
     <p>
-        © 2026 AI Learning App | Artificial Intelligence
+        🤖 AI Learning App
+    </p>
+
+    <p>
+        Interactive Artificial Intelligence Learning
+    </p>
+
+    <p>
+        © 2026
     </p>
 
 </footer>
 
 
 </body>
+
 </html>
