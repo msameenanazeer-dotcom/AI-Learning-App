@@ -1,150 +1,88 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <!-- ==============================
-         BASIC SETTINGS
-    =============================== -->
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="Interactive Artificial Intelligence Learning App">
-
-    <meta name="author"
-          content="AI Learning App">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>AI Learning App</title>
 
-
-    <!-- ==============================
-         CSS FILE
-    =============================== -->
-
     <link rel="stylesheet" href="style.css">
-
 </head>
-
 
 <body>
 
-
-<!-- =====================================================
-     HEADER
-====================================================== -->
+<!-- ================= HEADER ================= -->
 
 <header>
-
-    <h1>🤖 AI Learning App</h1>
-
-    <p>
-        Interactive Artificial Intelligence Problems
-        and Algorithms
-    </p>
-
+    <div class="header-content">
+        <h1>🤖 AI Learning App</h1>
+        <p>Interactive Artificial Intelligence Problems and Algorithms</p>
+    </div>
 </header>
 
 
-<!-- =====================================================
-     NAVIGATION MENU
-====================================================== -->
+<!-- ================= NAVIGATION ================= -->
 
-<nav>
+<nav class="navbar">
 
-    <button onclick="showPage('home')">
-        🏠 Home
-    </button>
+    <a href="index.html">🏠 Home</a>
 
-    <button onclick="showPage('puzzle')">
-        🧩 8 Puzzle
-    </button>
+    <!-- CHANGE THESE FILE NAMES TO YOUR ACTUAL FILE NAMES -->
 
-    <button onclick="showPage('water')">
-        💧 Water Jug
-    </button>
+    <a href="8-puzzle.html">🧩 8 Puzzle</a>
 
-    <button onclick="showPage('vacuum')">
-        🧹 Vacuum Cleaner
-    </button>
+    <a href="water-jug.html">💧 Water Jug</a>
 
-    <button onclick="showPage('mission')">
-        👨‍👩‍👦 Missionaries & Cannibals
-    </button>
+    <a href="vacuum-cleaner.html">🧹 Vacuum Cleaner</a>
 
-    <button onclick="showPage('bfs')">
-        🔎 BFS
-    </button>
+    <a href="missionaries-cannibals.html">
+        👨‍👩‍👧 Missionaries & Cannibals
+    </a>
 
-    <button onclick="showPage('dfs')">
-        🌲 DFS
-    </button>
+    <a href="bfs.html">🔎 BFS</a>
 
-    <button onclick="showPage('astar')">
-        ⭐ A*
-    </button>
+    <a href="dfs.html">🌲 DFS</a>
+
+    <a href="astar.html">⭐ A*</a>
 
 </nav>
 
 
-<!-- =====================================================
-     MAIN CONTAINER
-====================================================== -->
+<!-- ================= HOME ================= -->
 
-<div class="container">
+<main>
 
+<section class="home-section">
 
-<!-- =====================================================
-     HOME PAGE
-====================================================== -->
+    <h2>Welcome to AI Learning</h2>
 
-<section id="home" class="page active">
-
-
-    <div class="section-title">
-
-        <h2>
-            Welcome to AI Learning
-        </h2>
-
-        <p>
-            Learn Artificial Intelligence through
-            interactive problems and algorithms.
-        </p>
-
-    </div>
+    <p>
+        Learn Artificial Intelligence through interactive problems
+        and algorithms.
+    </p>
 
 
-    <!-- =========================
-         AI PROBLEM CARDS
-    ========================== -->
+    <!-- ================= PROBLEM CARDS ================= -->
 
-    <div class="cards">
+    <div class="card-container">
 
 
         <!-- 8 PUZZLE -->
 
         <div class="card">
 
-            <div class="icon">
-                🧩
-            </div>
+            <div class="card-icon">🧩</div>
 
-            <h3>
-                8 Puzzle
-            </h3>
+            <h3>8 Puzzle</h3>
 
             <p>
-                Learn state-space search using
-                the classic 8-puzzle problem.
+                Learn state-space search using the classic
+                8-puzzle problem.
             </p>
 
-            <button onclick="showPage('puzzle')">
+            <a href="8-puzzle.html" class="open-btn">
                 Open
-            </button>
+            </a>
 
         </div>
 
@@ -153,22 +91,18 @@
 
         <div class="card">
 
-            <div class="icon">
-                💧
-            </div>
+            <div class="card-icon">💧</div>
 
-            <h3>
-                Water Jug
-            </h3>
+            <h3>Water Jug</h3>
 
             <p>
-                Understand state-space representation
-                using water jugs.
+                Understand state-space representation using
+                water jugs.
             </p>
 
-            <button onclick="showPage('water')">
+            <a href="water-jug.html" class="open-btn">
                 Open
-            </button>
+            </a>
 
         </div>
 
@@ -177,46 +111,37 @@
 
         <div class="card">
 
-            <div class="icon">
-                🧹
-            </div>
+            <div class="card-icon">🧹</div>
 
-            <h3>
-                Vacuum Cleaner
-            </h3>
+            <h3>Vacuum Cleaner</h3>
 
             <p>
-                Study the classic AI vacuum cleaner
-                problem and environment.
+                Study the classic AI vacuum cleaner problem
+                and environment.
             </p>
 
-            <button onclick="showPage('vacuum')">
+            <a href="vacuum-cleaner.html" class="open-btn">
                 Open
-            </button>
+            </a>
 
         </div>
 
 
-        <!-- MISSIONARIES -->
+        <!-- MISSIONARIES & CANNIBALS -->
 
         <div class="card">
 
-            <div class="icon">
-                👨‍👩‍👦
-            </div>
+            <div class="card-icon">👨‍👩‍👧</div>
 
-            <h3>
-                Missionaries & Cannibals
-            </h3>
+            <h3>Missionaries & Cannibals</h3>
 
             <p>
-                Learn constraint-based
-                state-space problems.
+                Learn constraint-based state-space problems.
             </p>
 
-            <button onclick="showPage('mission')">
+            <a href="missionaries-cannibals.html" class="open-btn">
                 Open
-            </button>
+            </a>
 
         </div>
 
@@ -225,22 +150,17 @@
 
         <div class="card">
 
-            <div class="icon">
-                🔎
-            </div>
+            <div class="card-icon">🔎</div>
 
-            <h3>
-                Breadth First Search
-            </h3>
+            <h3>Breadth First Search</h3>
 
             <p>
-                Learn BFS traversal using
-                a simple graph.
+                Learn BFS traversal using a simple graph.
             </p>
 
-            <button onclick="showPage('bfs')">
+            <a href="bfs.html" class="open-btn">
                 Open
-            </button>
+            </a>
 
         </div>
 
@@ -249,22 +169,17 @@
 
         <div class="card">
 
-            <div class="icon">
-                🌲
-            </div>
+            <div class="card-icon">🌲</div>
 
-            <h3>
-                Depth First Search
-            </h3>
+            <h3>Depth First Search</h3>
 
             <p>
-                Understand DFS traversal and
-                backtracking.
+                Learn DFS traversal using a simple graph.
             </p>
 
-            <button onclick="showPage('dfs')">
+            <a href="dfs.html" class="open-btn">
                 Open
-            </button>
+            </a>
 
         </div>
 
@@ -273,22 +188,18 @@
 
         <div class="card">
 
-            <div class="icon">
-                ⭐
-            </div>
+            <div class="card-icon">⭐</div>
 
-            <h3>
-                A* Search
-            </h3>
+            <h3>A* Search</h3>
 
             <p>
-                Learn heuristic search using
-                the A* algorithm.
+                Learn heuristic search using the
+                A* algorithm.
             </p>
 
-            <button onclick="showPage('astar')">
+            <a href="astar.html" class="open-btn">
                 Open
-            </button>
+            </a>
 
         </div>
 
@@ -297,1100 +208,19 @@
 
 </section>
 
+</main>
 
-<!-- =====================================================
-     8 PUZZLE PAGE
-====================================================== -->
 
-<section id="puzzle" class="page">
-
-
-    <div class="section-title">
-
-        <h2>
-            🧩 8 Puzzle Problem
-        </h2>
-
-        <p>
-            Move the tiles and reach the goal state.
-        </p>
-
-    </div>
-
-
-    <!-- THEORY -->
-
-    <div class="box">
-
-        <h3>
-            What is the 8-Puzzle Problem?
-        </h3>
-
-        <p>
-            The 8-puzzle is a classic Artificial Intelligence
-            problem consisting of eight numbered tiles and
-            one blank space arranged in a 3 × 3 grid.
-        </p>
-
-        <p>
-            The objective is to move the tiles from an
-            initial state to a specified goal state.
-        </p>
-
-    </div>
-
-
-    <!-- INITIAL AND GOAL -->
-
-    <div class="box">
-
-        <h3>
-            Initial State
-        </h3>
-
-        <p>
-            7 &nbsp;&nbsp; 2 &nbsp;&nbsp; 4
-            <br>
-
-            5 &nbsp;&nbsp; - &nbsp;&nbsp; 6
-            <br>
-
-            8 &nbsp;&nbsp; 3 &nbsp;&nbsp; 1
-        </p>
-
-
-        <h3>
-            Goal State
-        </h3>
-
-        <p>
-            1 &nbsp;&nbsp; 2 &nbsp;&nbsp; 3
-            <br>
-
-            4 &nbsp;&nbsp; 5 &nbsp;&nbsp; 6
-            <br>
-
-            7 &nbsp;&nbsp; 8 &nbsp;&nbsp; -
-        </p>
-
-    </div>
-
-
-    <!-- INTERACTIVE PUZZLE -->
-
-    <div class="box">
-
-        <h3>
-            Interactive 8-Puzzle
-        </h3>
-
-        <div
-            id="puzzleBoard"
-            class="puzzle-board">
-        </div>
-
-
-        <button
-            class="action-btn"
-            onclick="shufflePuzzle()">
-
-            🔀 Shuffle
-
-        </button>
-
-
-        <button
-            class="action-btn"
-            onclick="solvePuzzle()">
-
-            ⭐ Show Solution
-
-        </button>
-
-
-        <button
-            class="action-btn reset-btn"
-            onclick="resetPuzzle()">
-
-            🔄 Reset
-
-        </button>
-
-
-        <p id="puzzleMessage">
-            Click a tile next to the blank space.
-        </p>
-
-    </div>
-
-
-</section>
-
-
-<!-- =====================================================
-     WATER JUG PAGE
-====================================================== -->
-
-<section id="water" class="page">
-
-
-    <div class="section-title">
-
-        <h2>
-            💧 Water Jug Problem
-        </h2>
-
-        <p>
-            Measure exactly 4 litres using a
-            5-litre jug and a 3-litre jug.
-        </p>
-
-    </div>
-
-
-    <!-- THEORY -->
-
-    <div class="box">
-
-        <h3>
-            Problem Statement
-        </h3>
-
-        <p>
-            We have two jugs:
-        </p>
-
-        <ul>
-
-            <li>
-                5-litre jug
-            </li>
-
-            <li>
-                3-litre jug
-            </li>
-
-        </ul>
-
-        <p>
-            The objective is to measure exactly
-            <b>4 litres</b>.
-        </p>
-
-    </div>
-
-
-    <!-- OPERATIONS -->
-
-    <div class="box">
-
-        <h3>
-            Operations
-        </h3>
-
-
-        <button
-            class="action-btn"
-            onclick="fillJug(1)">
-
-            Fill 5L
-
-        </button>
-
-
-        <button
-            class="action-btn"
-            onclick="fillJug(2)">
-
-            Fill 3L
-
-        </button>
-
-
-        <button
-            class="action-btn"
-            onclick="emptyJug(1)">
-
-            Empty 5L
-
-        </button>
-
-
-        <button
-            class="action-btn"
-            onclick="emptyJug(2)">
-
-            Empty 3L
-
-        </button>
-
-
-        <button
-            class="action-btn"
-            onclick="pourJug(1,2)">
-
-            Pour 5L → 3L
-
-        </button>
-
-
-        <button
-            class="action-btn"
-            onclick="pourJug(2,1)">
-
-            Pour 3L → 5L
-
-        </button>
-
-
-        <button
-            class="action-btn reset-btn"
-            onclick="resetJugs()">
-
-            🔄 Reset
-
-        </button>
-
-
-        <!-- JUGS -->
-
-        <div class="jugs">
-
-
-            <!-- 5L JUG -->
-
-            <div>
-
-                <div class="jug">
-
-                    <div
-                        id="water5"
-                        class="water">
-                    </div>
-
-                </div>
-
-                <div class="jug-label">
-
-                    5L Jug:
-                    <span id="value5">
-                        0
-                    </span>
-                    L
-
-                </div>
-
-            </div>
-
-
-            <!-- 3L JUG -->
-
-            <div>
-
-                <div class="jug">
-
-                    <div
-                        id="water3"
-                        class="water">
-                    </div>
-
-                </div>
-
-                <div class="jug-label">
-
-                    3L Jug:
-                    <span id="value3">
-                        0
-                    </span>
-                    L
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <p id="jugMessage">
-            Current State = (0, 0)
-        </p>
-
-    </div>
-
-
-    <!-- STATE REPRESENTATION -->
-
-    <div class="box">
-
-        <h3>
-            State Representation
-        </h3>
-
-        <p>
-            A state is represented as:
-        </p>
-
-        <h3>
-            (x, y)
-        </h3>
-
-        <p>
-            x = amount of water in the 5L jug
-        </p>
-
-        <p>
-            y = amount of water in the 3L jug
-        </p>
-
-    </div>
-
-
-</section>
-
-
-<!-- =====================================================
-     VACUUM CLEANER PAGE
-====================================================== -->
-
-<section id="vacuum" class="page">
-
-
-    <div class="section-title">
-
-        <h2>
-            🧹 Vacuum Cleaner Problem
-        </h2>
-
-        <p>
-            The vacuum cleaner must clean both rooms.
-        </p>
-
-    </div>
-
-
-    <!-- THEORY -->
-
-    <div class="box">
-
-        <h3>
-            Problem Description
-        </h3>
-
-        <p>
-            The vacuum cleaner operates in two rooms,
-            Room A and Room B.
-        </p>
-
-        <p>
-            Each room may be clean or dirty.
-            The agent must clean the dirty rooms.
-        </p>
-
-    </div>
-
-
-    <!-- ENVIRONMENT -->
-
-    <div class="box">
-
-        <h3>
-            Vacuum Cleaner Environment
-        </h3>
-
-
-        <div class="vacuum-grid">
-
-
-            <div
-                id="roomA"
-                class="room">
-
-                🗑️
-
-            </div>
-
-
-            <div
-                id="roomB"
-                class="room">
-
-                🗑️
-
-            </div>
-
-
-        </div>
-
-
-        <p>
-
-            Current Position:
-
-            <b id="vacuumPosition">
-                A
-            </b>
-
-        </p>
-
-
-        <button
-            class="action-btn"
-            onclick="vacuumClean()">
-
-            🧹 Clean
-
-        </button>
-
-
-        <button
-            class="action-btn"
-            onclick="vacuumMove()">
-
-            ➡️ Move
-
-        </button>
-
-
-        <button
-            class="action-btn reset-btn"
-            onclick="resetVacuum()">
-
-            🔄 Reset
-
-        </button>
-
-
-        <p id="vacuumMessage">
-            Vacuum cleaner is in Room A.
-        </p>
-
-    </div>
-
-
-</section>
-
-
-<!-- =====================================================
-     MISSIONARIES AND CANNIBALS
-====================================================== -->
-
-<section id="mission" class="page">
-
-
-    <div class="section-title">
-
-        <h2>
-            👨‍👩‍👦 Missionaries & Cannibals
-        </h2>
-
-        <p>
-            Move all missionaries and cannibals
-            safely across the river.
-        </p>
-
-    </div>
-
-
-    <!-- PROBLEM -->
-
-    <div class="box">
-
-        <h3>
-            Problem Statement
-        </h3>
-
-        <p>
-            Three missionaries and three cannibals
-            are on one side of a river.
-        </p>
-
-        <p>
-            They must cross the river using a boat.
-        </p>
-
-    </div>
-
-
-    <!-- RULES -->
-
-    <div class="box">
-
-        <h3>
-            Rules
-        </h3>
-
-        <ul>
-
-            <li>
-                The boat can carry a maximum of 2 people.
-            </li>
-
-            <li>
-                The boat must carry at least 1 person.
-            </li>
-
-            <li>
-                Cannibals must never outnumber
-                missionaries when missionaries are present.
-            </li>
-
-        </ul>
-
-    </div>
-
-
-    <!-- INTERACTIVE DEMO -->
-
-    <div class="box">
-
-        <h3>
-            Interactive Demonstration
-        </h3>
-
-
-        <div class="mc-board">
-
-
-            <!-- LEFT BANK -->
-
-            <div class="bank">
-
-                <h3>
-                    Left Bank
-                </h3>
-
-                <p id="leftPeople">
-
-                    👨‍⚕️👨‍⚕️👨‍⚕️
-                    <br>
-                    👹👹👹
-
-                </p>
-
-            </div>
-
-
-            <!-- BOAT -->
-
-            <div class="boat">
-
-                🚣
-
-            </div>
-
-
-            <!-- RIGHT BANK -->
-
-            <div class="bank">
-
-                <h3>
-                    Right Bank
-                </h3>
-
-                <p id="rightPeople">
-
-                    Empty
-
-                </p>
-
-            </div>
-
-
-        </div>
-
-
-        <button
-            class="action-btn"
-            onclick="moveMissionaries()">
-
-            👨‍⚕️ Move 2 Missionaries
-
-        </button>
-
-
-        <button
-            class="action-btn"
-            onclick="moveCannibals()">
-
-            👹 Move 2 Cannibals
-
-        </button>
-
-
-        <button
-            class="action-btn"
-            onclick="moveMixed()">
-
-            👨‍⚕️ + 👹 Move 1M + 1C
-
-        </button>
-
-
-        <button
-            class="action-btn reset-btn"
-            onclick="resetMission()">
-
-            🔄 Reset
-
-        </button>
-
-
-        <p id="missionMessage">
-
-            Ready to start.
-
-        </p>
-
-    </div>
-
-
-</section>
-
-
-<!-- =====================================================
-     BFS PAGE
-====================================================== -->
-
-<section id="bfs" class="page">
-
-
-    <div class="section-title">
-
-        <h2>
-            🔎 Breadth First Search
-        </h2>
-
-        <p>
-            BFS explores nodes level by level.
-        </p>
-
-    </div>
-
-
-    <!-- THEORY -->
-
-    <div class="box">
-
-        <h3>
-            What is BFS?
-        </h3>
-
-        <p>
-            Breadth First Search is an uninformed
-            search algorithm.
-        </p>
-
-        <p>
-            It explores all nodes at the current
-            depth before moving to the next depth.
-        </p>
-
-        <p>
-            BFS uses a <b>Queue</b>.
-        </p>
-
-    </div>
-
-
-    <!-- GRAPH -->
-
-    <div class="box">
-
-        <h3>
-            Example Graph
-        </h3>
-
-
-        <div class="graph">
-
-            <pre>
-
-        A
-       / \
-      B   C
-     / \   \
-    D   E   F
-
-            </pre>
-
-        </div>
-
-
-        <button
-            class="action-btn"
-            onclick="runBFS()">
-
-            ▶ Run BFS
-
-        </button>
-
-
-        <div
-            id="bfsResult"
-            class="search-tree">
-
-            Click "Run BFS" to start.
-
-        </div>
-
-    </div>
-
-
-    <!-- ALGORITHM -->
-
-    <div class="box">
-
-        <h3>
-            BFS Steps
-        </h3>
-
-        <ol>
-
-            <li>
-                Start with the root node.
-            </li>
-
-            <li>
-                Put the node into a queue.
-            </li>
-
-            <li>
-                Remove the first node.
-            </li>
-
-            <li>
-                Visit the node.
-            </li>
-
-            <li>
-                Add unvisited neighbouring nodes.
-            </li>
-
-            <li>
-                Repeat until the goal is found.
-            </li>
-
-        </ol>
-
-    </div>
-
-
-</section>
-
-
-<!-- =====================================================
-     DFS PAGE
-====================================================== -->
-
-<section id="dfs" class="page">
-
-
-    <div class="section-title">
-
-        <h2>
-            🌲 Depth First Search
-        </h2>
-
-        <p>
-            DFS explores one branch deeply
-            before backtracking.
-        </p>
-
-    </div>
-
-
-    <!-- THEORY -->
-
-    <div class="box">
-
-        <h3>
-            What is DFS?
-        </h3>
-
-        <p>
-            Depth First Search is an uninformed
-            search algorithm.
-        </p>
-
-        <p>
-            DFS explores a path as deeply as possible
-            before backtracking.
-        </p>
-
-        <p>
-            DFS can be implemented using a
-            <b>Stack</b> or recursion.
-        </p>
-
-    </div>
-
-
-    <!-- GRAPH -->
-
-    <div class="box">
-
-        <h3>
-            Example Graph
-        </h3>
-
-
-        <div class="graph">
-
-            <pre>
-
-        A
-       / \
-      B   C
-     / \   \
-    D   E   F
-
-            </pre>
-
-        </div>
-
-
-        <button
-            class="action-btn"
-            onclick="runDFS()">
-
-            ▶ Run DFS
-
-        </button>
-
-
-        <div
-            id="dfsResult"
-            class="search-tree">
-
-            Click "Run DFS" to start.
-
-        </div>
-
-    </div>
-
-
-    <!-- ALGORITHM -->
-
-    <div class="box">
-
-        <h3>
-            DFS Steps
-        </h3>
-
-        <ol>
-
-            <li>
-                Start from the root.
-            </li>
-
-            <li>
-                Visit the current node.
-            </li>
-
-            <li>
-                Move to an unvisited child.
-            </li>
-
-            <li>
-                Continue deeply.
-            </li>
-
-            <li>
-                Backtrack when necessary.
-            </li>
-
-        </ol>
-
-    </div>
-
-
-</section>
-
-
-<!-- =====================================================
-     A* PAGE
-====================================================== -->
-
-<section id="astar" class="page">
-
-
-    <div class="section-title">
-
-        <h2>
-            ⭐ A* Search Algorithm
-        </h2>
-
-        <p>
-            A* combines actual path cost and
-            heuristic information.
-        </p>
-
-    </div>
-
-
-    <!-- THEORY -->
-
-    <div class="box">
-
-        <h3>
-            What is A*?
-        </h3>
-
-        <p>
-            A* is a heuristic search algorithm
-            commonly used for finding a low-cost
-            path from a start node to a goal node.
-        </p>
-
-    </div>
-
-
-    <!-- FORMULA -->
-
-    <div class="box">
-
-        <h3>
-            A* Evaluation Function
-        </h3>
-
-
-        <h2>
-            f(n) = g(n) + h(n)
-        </h2>
-
-
-        <p>
-
-            <b>g(n)</b> =
-            Actual cost from the start node
-            to node n.
-
-        </p>
-
-
-        <p>
-
-            <b>h(n)</b> =
-            Estimated cost from node n
-            to the goal.
-
-        </p>
-
-
-        <p>
-
-            <b>f(n)</b> =
-            Estimated total cost.
-
-        </p>
-
-    </div>
-
-
-    <!-- INTERACTIVE A* -->
-
-    <div class="box">
-
-        <h3>
-            A* Search Demonstration
-        </h3>
-
-
-        <button
-            class="action-btn"
-            onclick="runAStar()">
-
-            ⭐ Run A*
-
-        </button>
-
-
-        <div
-            id="astarResult"
-            class="search-tree">
-
-            Click "Run A*" to start.
-
-        </div>
-
-    </div>
-
-
-    <!-- STEPS -->
-
-    <div class="box">
-
-        <h3>
-            A* Steps
-        </h3>
-
-        <ol>
-
-            <li>
-                Start from the initial node.
-            </li>
-
-            <li>
-                Calculate g(n).
-            </li>
-
-            <li>
-                Calculate h(n).
-            </li>
-
-            <li>
-                Calculate f(n) = g(n) + h(n).
-            </li>
-
-            <li>
-                Select the node with the lowest f(n).
-            </li>
-
-            <li>
-                Continue until the goal is reached.
-            </li>
-
-        </ol>
-
-    </div>
-
-
-</section>
-
-
-</div>
-
-
-<!-- =====================================================
-     FOOTER
-====================================================== -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
     <p>
-        🤖 <b>AI Learning App</b>
-    </p>
-
-    <p>
-        Interactive Artificial Intelligence
-        Learning Platform
-    </p>
-
-    <p>
-        © 2026 AI Learning App
+        © 2026 AI Learning App | Artificial Intelligence
     </p>
 
 </footer>
 
 
-<!-- =====================================================
-     JAVASCRIPT FILE
-====================================================== -->
-
-<script src="script.js"></script>
-
-
 </body>
-
 </html>
